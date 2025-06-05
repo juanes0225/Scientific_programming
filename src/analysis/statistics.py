@@ -47,7 +47,7 @@ def compute_fisher_ratio(df: pd.DataFrame, feature_col: str, label_col: str) -> 
 
 
 
-def separability_measure(df: pd.DataFrame, feature_cols: list, label_col: str) -> pd.DataFrame:
+def separability_measure(df: pd.DataFrame, feature_cols: list, label_col: str) -> pd.DataFrame:   # Complexity O(n)
     
     #Compute Fisher Ratio for each feature in feature_cols as a measure of class separability.
 

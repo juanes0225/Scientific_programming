@@ -10,18 +10,20 @@ def train_and_evaluate_logistic_regression(data: pd.DataFrame, features: list, t
     X = data[features]
     y = data[target]
 
-    # Dividir datos en entrenamiento y prueba (80%-20%)
+    
+# Split data into training and test (80%-20%)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Inicializar y entrenar el modelo
-    model = LogisticRegression(max_iter=1000)
+    model = LogisticRegression(max_iter=1000)              # Complexity O((f+1)csE), f = number of characteristics
     model.fit(X_train, y_train)
 
-    # Predecir en el conjunto de prueba
+    
+# Initialize and train the model
     y_pred = model.predict(X_test)
     y_proba = model.predict_proba(X_test)[:, 1]
 
-    # Calcular métricas de rendimiento
+    # Calculate performance metrics
     accuracy = accuracy_score(y_test, y_pred)
     precision = precision_score(y_test, y_pred)
     recall = recall_score(y_test, y_pred)
@@ -36,7 +38,7 @@ def train_and_evaluate_logistic_regression(data: pd.DataFrame, features: list, t
         "roc_auc": roc_auc
     }
 
-    print("Métricas de rendimiento de Regresión Logística:")
+    print("Logistic Regression Performance Metrics:")
     print(f"Accuracy:    {accuracy:.4f}")
     print(f"Precision:   {precision:.4f}")
     print(f"Recall:      {recall:.4f}")

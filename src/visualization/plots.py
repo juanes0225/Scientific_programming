@@ -7,7 +7,7 @@ import numpy as np
 from pathlib import Path
 from mpl_toolkits.mplot3d import Axes3D
 
-def plot_normalized_variables(data: pd.DataFrame, variables: list, time_col: str, output_path: Path = None):
+def plot_normalized_variables(data: pd.DataFrame, variables: list, time_col: str, output_path: Path = None):   # Complexity O(n)
 
     plt.figure(figsize=(10, 4))
     for var in variables:
@@ -24,7 +24,7 @@ def plot_normalized_variables(data: pd.DataFrame, variables: list, time_col: str
     print(f"Gráfico guardado en: {output_path}")
     plt.close() # Cierra la figura para liberar memoria
 
-def generate_and_save_descriptive_statistics(data: pd.DataFrame, output_dir: Path):
+def generate_and_save_descriptive_statistics(data: pd.DataFrame, output_dir: Path):  
     
     
     
@@ -39,7 +39,7 @@ def generate_and_save_descriptive_statistics(data: pd.DataFrame, output_dir: Pat
      
     return summary_statistics
 
-def plot_features_boxplot(data: pd.DataFrame, features: list = None, output_path: Path = None):
+def plot_features_boxplot(data: pd.DataFrame, features: list = None, output_path: Path = None):  # Complexity O(n)
 
     plt.figure(figsize=(10, 8))
     sns.boxplot(data=data.iloc[:, 1:-1]) 
@@ -54,7 +54,7 @@ def plot_features_boxplot(data: pd.DataFrame, features: list = None, output_path
     
     plt.close()
 
-def plot_feature_density(data: pd.DataFrame, features: list, hue_col: str, output_path: Path = None):
+def plot_feature_density(data: pd.DataFrame, features: list, hue_col: str, output_path: Path = None):  # Complexity O(n)
  
     # Ajustar el layout de subplots dinámicamente
     num_features = len(features)
@@ -73,7 +73,7 @@ def plot_feature_density(data: pd.DataFrame, features: list, hue_col: str, outpu
     plt.savefig(output_path)
     plt.close()
 
-def plot_3d_scatter(data: pd.DataFrame, x_col: str, y_col: str, z_col: str, color_col: str, output_path: Path = None):
+def plot_3d_scatter(data: pd.DataFrame, x_col: str, y_col: str, z_col: str, color_col: str, output_path: Path = None):  # Complexity O(n^2)
 
     fig = plt.figure(figsize=(10, 8)) # Ajusta el tamaño de la figura 3D
     ax = fig.add_subplot(111, projection='3d')
@@ -89,7 +89,7 @@ def plot_3d_scatter(data: pd.DataFrame, x_col: str, y_col: str, z_col: str, colo
     plt.close()
 
 
-def plot_pairplot(data: pd.DataFrame, hue_col: str = None, output_path: Path = None):
+def plot_pairplot(data: pd.DataFrame, hue_col: str = None, output_path: Path = None):  # Complexity O(n)
 
     
     
@@ -101,7 +101,7 @@ def plot_pairplot(data: pd.DataFrame, hue_col: str = None, output_path: Path = N
     g.savefig(output_path) 
     plt.close()
 
-def plot_generic_2d_line(data: pd.DataFrame, x_column: str, y_column: str, output_path: Path = None):
+def plot_generic_2d_line(data: pd.DataFrame, x_column: str, y_column: str, output_path: Path = None):   # Complexity O(n)
     
     
     plt.figure(figsize=(10, 5))
@@ -115,7 +115,7 @@ def plot_generic_2d_line(data: pd.DataFrame, x_column: str, y_column: str, outpu
     plt.savefig(output_path)
     plt.close()
 
-def plot_eigenvectors_2d(data_matrix: np.ndarray, eigenvalues: np.ndarray, eigenvectors: np.ndarray,
+def plot_eigenvectors_2d(data_matrix: np.ndarray, eigenvalues: np.ndarray, eigenvectors: np.ndarray,  # Complexity O(n)
                          column_names: list, output_path: Path = None):
     
     
@@ -139,7 +139,7 @@ def plot_eigenvectors_2d(data_matrix: np.ndarray, eigenvalues: np.ndarray, eigen
     plt.close()
 
 
-def plot_pca_dimensionality_reduction(transformed_data: np.ndarray, labels: pd.Series, output_path: Path = None):
+def plot_pca_dimensionality_reduction(transformed_data: np.ndarray, labels: pd.Series, output_path: Path = None):  # Complexity O(n)
     
     
     colors = {0: 'blue', 1: 'red'}

@@ -11,7 +11,7 @@ class FeatureExtractor:
         self.df = dataframe.copy() # Work with a copy to avoid modifying the original
         self.fs = 1
 
-    def extract_time_features(self, columns: list) -> pd.DataFrame:
+    def extract_time_features(self, columns: list) -> pd.DataFrame:   # Complexity O(n)
         
         features = {}
         for col in columns:
@@ -23,7 +23,7 @@ class FeatureExtractor:
             }
         return pd.DataFrame(features).T 
 
-    def extract_frequency_features(self, columns: list) -> pd.DataFrame:
+    def extract_frequency_features(self, columns: list) -> pd.DataFrame:  # Complexity O(n)
      
         features = {}
         
@@ -46,7 +46,7 @@ class FeatureExtractor:
             }
         return pd.DataFrame(features).T if features else pd.DataFrame()
 
-    def extract_distribution_features(self, columns: list) -> pd.DataFrame:
+    def extract_distribution_features(self, columns: list) -> pd.DataFrame:  # Complexity O(n)
        
         features = {}
         for col in columns:
@@ -58,7 +58,7 @@ class FeatureExtractor:
             }
         return pd.DataFrame(features).T 
 
-    def extract_derivative_features(self, columns: list) -> pd.DataFrame:
+    def extract_derivative_features(self, columns: list) -> pd.DataFrame:   # Complexity O(n^2)
         
         features = {}
         for col in columns:
@@ -73,7 +73,7 @@ class FeatureExtractor:
         return pd.DataFrame(features).T 
     
 
-    def apply_pca_transformation(data: pd.DataFrame, n_components: int = 2) -> tuple[np.ndarray, pd.Series]:
+    def apply_pca_transformation(data: pd.DataFrame, n_components: int = 2) -> tuple[np.ndarray, pd.Series]:  # Complexity O(n)
         
 
         # Eliminar la columna datetime 'Hora_PC'
